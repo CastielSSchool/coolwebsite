@@ -1,5 +1,33 @@
+<!DOCTYPE html>
 <html>
 <body bgcolor="#FFA500">
-<h1 style="color:white; font-family: Comic Sans MS; font-size: 8rem; text-align: center" >The Cool Website</h1>
-<h2 style="color:white; font-size: 2rem; text-align: center;">Welcome to my website. I hope  you really like it :)</h2>
+<h1 style="color:white; font-family: Comic Sans MS; font-size: 8rem; text-align: center;" >The Cool Website</h1>
+<h2 style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">Welcome to my website. I hope  you really like it :)</h2>
+<body>
+	<div class="section">
+		<div class="text">
+		<h1 style="color:white; font-family: Comic Sans MS; font-size: 4rem; text-align: center;">What's the cool website?</h1>
+		<p style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">
+			The cool website is a super cool website that is super cool. I hope you think it's  cool!
+			Look at the guy on the bottom. He thinks the website is cool!
+		</div>
+			<center><img src="img/thumbsUp.jpg" alt="I like this website!"></center>
+		</p>
+	</div>
+</body>
+<html>
+<center><input onclick="change()" type="button" value="I like this website!" id="like"></input></center>
+<script>
+var like = document.getElementById("like")
+function change()
+{
+	like.value = "Liked! You are cool now.";
+	like.disabled=true;
+	var coolness = new Audio("mus/cool.mp3");
+	coolness.loop=true;
+	coolness.volume=.25;
+	coolness.play()
+}
+</script>
 </html>
+
