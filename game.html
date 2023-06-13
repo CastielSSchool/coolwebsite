@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+    height: 200px;
+    width: 400px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+</style>
+<div>
+<body bgcolor="#888888">
+<center><h1 id="title">The button game</h1>
+<p id="intro">Press button to begin!</p>
+<input onclick="button()" type="button" id="button" value="The Button"></input></center>
+
+<script>
+function button() {
+	document.getElementById("intro").style.visibility="hidden";
+	var title = document.getElementById("title");
+	title.innerHTML = "Ready...";
+	setTimeout({title.innerHTML="PRESS NOW!", 3000});
+}
+</script>
+</div>
+</html>
+
