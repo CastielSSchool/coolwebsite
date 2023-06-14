@@ -20,29 +20,27 @@ div {
 
 <script>
 var state = 0;
-var timerOn;
 var timer;
 var seconds = 0.00;
-var timeNotPressed = setInterval(addTime,10);
 var title = document.getElementById("title");
 
 function button(val) {
 	console.log(state);
 	if (state != 1 && state != 2) {
 		document.getElementById("intro").style.visibility="hidden";
-		title.innerHTML = "Ready...";
-		timeStart();
+		//title.innerHTML = "Ready...";
+		timer = setTimeout(pressNow,3000);
+		seconds = 0.00;
+		toggleTimer(0)
 		setState(1);
-		console.log(state);
 	} else if (state = 2 && state != 1) {
-		title.innerHTML = "Pressed!";
-		setState(0)
-	} else {
-		title.innerHTML = "False Start >:(";
-		timeStop();
+		title.innerHTML = String(seconds+"s");
 		setState(0);
+		toggleTimer(0);
+	} else {
+		//title.innerHTML = "False Start >:(";
 		clearTimeout(timer);
-		console.log(state);
+		setState(0);
 	}
 	console.log(state);
 }
@@ -52,18 +50,21 @@ function setState(s) {
 }
 
 function pressNow() {
-	title.innerHTML = "PRESS NOW!";
+	//title.innerHTML = "PRESS NOW!";
 	setState(2);
+	toggleTimer(1);
 }
 
-function timeStart() {
-	timer = setTimeout(pressNow,3000);
-	timerOn = 1;
+function toggleTimer(on) {
+	if (on = 1) {
+		secondsNotPressed = setInterval(function() {seconds += 0.01},10)
+		title.innerHTML = String(seconds+"s");
+	} else if (on = 0) {
+		clearInterval(secondsNotPressed);
+	}
 }
 
 function timeStop() {
-	clearTimeout(timer);
-	timerOn = 0;
 }
 
 function addTime() {
