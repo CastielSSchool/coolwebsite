@@ -36,19 +36,29 @@
 <div id="coolClicker" class="tabcontent">
 	<div>
 		<center><h1 id="clickText">Clicks: 0</h1>
-		<input type="button" id="buttonClicky" value="The Button"></input></center>
+		<input type="button" id="buttonClicky" value="The Button"></input>
+		<input type="button" id="buttonUpgrade" value="Upgrade Clicks (100)"></input></center>
 	</div>
 	<script>
 		var clickText = document.getElementById("clickText");
-		var clicks = 0;
-		var upgrades = 1;v
+		clicks = 0;
+		var upgrades = 1;
 		
 		function click() {
 			clicks += 1 * upgrades;
 			clickText.innerHTML = "Clicks: " + clicks;
 			window.localStorage.setItem("clicks",clicks);
 		}
+		function upgrade() {
+			if (clicks >= upgrades * 100) {
+				clicks -= upgrades * 100;
+				upgrades += 1;
+				document.getElementById("buttonUpgrade").value = "Upgrade Clicks (" + upgrades * 100 + ")";
+				clickText.innerHTML = "Clicks: " + clicks;
+			}
+		}
 		document.getElementById("buttonClicky").addEventListener("click", click);
+		document.getElementById("buttonUpgrade").addEventListener("click", upgrade);
 	</script>
 </div>
 
