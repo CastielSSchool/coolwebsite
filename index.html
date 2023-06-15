@@ -1,24 +1,39 @@
 <!DOCTYPE html>
+<div class="tab">
+	<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
+	<button class="tablinks" onclick="openTab(event, 'tutorial')">Being Cool Tutorial</button>
+</div>
+
 <html>
-<body bgcolor="#FFA500">
-<h1 style="color:white; font-family: Comic Sans MS; font-size: 8rem; text-align: center;" >The Cool Website</h1>
-<h2 style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">Welcome to my website. I hope  you really like it :)</h2>
-<body>
-	<div class="section">
-		<div class="text">
-		<h1 style="color:white; font-family: Comic Sans MS; font-size: 4rem; text-align: center;">What's the cool website?</h1>
-		<p style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">
-			The cool website is a super cool website that is super cool. I hope you think it's  cool!
-			Look at the guy on the bottom. He thinks the website is cool!
+<div id="home" class="tabcontent">
+	<body bgcolor="#FFA500">
+	<h1 style="color:white; font-family: Comic Sans MS; font-size: 8rem; text-align: center;" >The Cool Website</h1>
+	<h2 style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">Welcome to my website. I hope  you really like it :)</h2>
+	<body>
+		<div class="section">
+			<div class="text">
+			<h1 style="color:white; font-family: Comic Sans MS; font-size: 4rem; text-align: center;">What's the cool website?</h1>
+			<p style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">
+				The cool website is a super cool website that is super cool. I hope you think it's  cool!
+				Look at the guy on the bottom. He thinks the website is cool!
+			</div>
+				<center><img src="img/thumbsUp.jpg" alt="I like this website!"></center>
+			</p>
+			<center><input onclick="change()" type="button" value="I like this website!" id="like"></input></center>
 		</div>
-			<center><img src="img/thumbsUp.jpg" alt="I like this website!"></center>
-		</p>
-	</div>
-</body>
+	</body>
+</div>
 <html>
-<center><input onclick="change()" type="button" value="I like this website!" id="like"></input></center>
+
+<div id="tutorial" class="tabcontent">
+	<body bgcolor="#0000FF">
+	<h2 style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">So... you wanna be cool, huh? Well, look no further thanks to this tutorial!</h2>
+	<center><iframe width="1280" height="720" src="https://www.youtube.com/embed/-i-0InCs2TA"></iframe></center>
+	<p style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">(cool music included)</p>
+</div>
 <script>
-var like = document.getElementById("like")
+var like = document.getElementById("like");
+openTab(event, 'home');
 function change()
 {
 	like.value = "Liked! You are cool now.";
@@ -27,6 +42,23 @@ function change()
 	coolness.loop=true;
 	coolness.volume=.25;
 	coolness.play()
+}
+
+function openTab(evt, tabName) {
+	var i, tabcontent, tablinks;
+	
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+	
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].class = tablinks[i].className.replace(" active","");
+	}
+	
+	document.getElementById(tabName).style.display = "block";
+	evt.currentTarget.className += " active";
 }
 </script>
 </html>
