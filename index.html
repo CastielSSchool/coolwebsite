@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<div class="tab">
+<center><div class="tab">
 	<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
 	<button class="tablinks" onclick="openTab(event, 'tutorial')">Being Cool Tutorial</button>
-</div>
+	<button class="tablinks" onclick="openTab(event, 'coolClicker')">Cool Clicker!</button>
+</div></center>
 
 <html>
 <div id="home" class="tabcontent">
@@ -25,12 +26,25 @@
 </div>
 <html>
 
-<div id="tutorial" class="tabcontent">
-	<body bgcolor="#0000FF">
-	<h2 style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">So... you wanna be cool, huh? Well, look no further thanks to this tutorial!</h2>
-	<center><iframe width="1280" height="720" src="https://www.youtube.com/embed/-i-0InCs2TA"></iframe></center>
-	<p style="color:white; font-family: Comic Sans MS; font-size: 2rem; text-align: center;">(cool music included)</p>
+<div id="coolClicker" class="tabcontent">
+	<div>
+		<center><h1 id="clickText">Clicks: 0</h1>
+		<input type="button" id="buttonClicky" value="The Button"></input></center>
+	</div>
+	<script>
+		var clickText = document.getElementById("clickText");
+		var clicks = 0;
+		var upgrades = 1;
+		
+		function click() {
+			clicks += 1 * upgrades;
+			clickText.innerHTML = "Clicks: " + clicks;
+			window.localStorage.setItem("clicks",clicks);
+		}
+		document.getElementById("buttonClicky").addEventListener("click", click);
+	</script>
 </div>
+
 <script>
 var like = document.getElementById("like");
 openTab(event, 'home');
@@ -58,8 +72,8 @@ function openTab(evt, tabName) {
 	}
 	
 	document.getElementById(tabName).style.display = "block";
-	evt.currentTarget.className += " active";
 }
+
 </script>
 </html>
 
